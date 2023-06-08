@@ -2,13 +2,13 @@ FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get -y upgrade && \
-        apt-get install -y apt-utils bsdmainutils ca-certificates clang \
-        cpio cron curl dmidecode dmsetup g++ gcc gdbm-l10n git  \
-        hexedit  ifupdown init logrotate lsb-base lynx make \
-        netbase openssl procps python3 python3-cryptography \
+        apt-get install -y apt-utils bsdmainutils ca-certificates \
+        cpio cron curl dmidecode dmsetup git  \
+        ifupdown init logrotate lsb-base lynx make \
+        netbase openssl procps python3 \
         readline-common rsyslog sensible-utils lua50 luajit \
         ssh systemd systemd-sysv tasksel tasksel-data udev vim wget whiptail \
-        xxd iptables isc-dhcp-client isc-dhcp-common kmod less netcat-openbsd
+        iptables isc-dhcp-client isc-dhcp-common kmod less
 
 # Make a user, then copy over the /example directory
 RUN useradd -m user && echo "user:password" | chpasswd
