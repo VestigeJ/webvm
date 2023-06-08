@@ -16,7 +16,5 @@ COPY --chown=user:user ./examples /home/user/examples
 RUN chmod -R +x  /home/user/examples/lua
 RUN echo 'root:password' | chpasswd
 RUN wget https://go.dev/dl/go1.20.5.linux-386.tar.gz && tar -xvzf go1.20.5.linux-386.tar.gz
-RUN chmod -R +x /home/user/go/bin/
-RUN go install github.com/charmbracelet/vhs@latest
 RUN git clone https://github.com/VestigeJ/ecm-distro-tools.git && mv ./ecm-distro-tools/qa/qa-captain/bashrc .bashrc
 CMD [ "/bin/bash" ]
